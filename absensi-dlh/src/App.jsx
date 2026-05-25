@@ -1,13 +1,16 @@
-import { BrowserRouter, Routes, Route } 
-from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
-import { db } from "./firebase/firebase";
+import Login from "./pages/auth/Login";
 
-import TestUpload from "./pages/TestUpload";
+import Register from "./pages/auth/Register";
+
+import Dashboard from "./pages/admin/Dashboard";
 
 function App() {
-
-  console.log(db);
 
   return (
 
@@ -16,14 +19,23 @@ function App() {
       <Routes>
 
         <Route
-          path="/test-upload"
-          element={<TestUpload />}
+          path="/"
+          element={<Login />}
+        />
+
+        <Route
+          path="/register"
+          element={<Register />}
+        />
+
+        <Route
+          path="/admin/dashboard"
+          element={<Dashboard />}
         />
 
       </Routes>
 
     </BrowserRouter>
-
   );
 }
 

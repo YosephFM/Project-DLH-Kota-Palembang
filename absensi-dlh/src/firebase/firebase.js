@@ -6,7 +6,7 @@ import { getFirestore } from "firebase/firestore";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBl_NPfSlCyRZ2ksJkjv8zDXYXr0vt5LzY",
+  apiKey: "AIzaSyBl_NPfSLCyRZ2ksJkjv8zDXYXr0vt5LzY",
   authDomain: "absensi-dlh-8ef17.firebaseapp.com",
   projectId: "absensi-dlh-8ef17",
   storageBucket: "absensi-dlh-8ef17.firebasestorage.app",
