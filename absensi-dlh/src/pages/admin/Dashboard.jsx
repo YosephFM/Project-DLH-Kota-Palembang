@@ -1,15 +1,14 @@
-import AdminLayout
-from "../../layouts/AdminLayout";
+import AdminLayout from "../../layouts/AdminLayout";
 
 function Dashboard() {
 
   return (
 
-    <div>
+    <AdminLayout>
 
       <h1>Dashboard Admin</h1>
 
-    </div>
+    </AdminLayout>
   );
 }
 

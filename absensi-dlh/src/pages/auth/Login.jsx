@@ -1,12 +1,9 @@
 import { useState } from "react";
-
+import {doc, getDoc} from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-
-import { signInWithEmailAndPassword }
-from "firebase/auth";
-
-import { auth }
-from "../../firebase/firebase";
+import { signInWithEmailAndPassword }from "firebase/auth";
+import { auth }from "../../firebase/firebase";
+import { db }from "../../firebase/firebase";
 
 function Login() {
 
@@ -46,9 +43,17 @@ function Login() {
 
       console.log("LOGIN BERHASIL");
       console.log(userCredential.user);
+      const uid = userCredential.user.uid;
+      const userDoc = await getDoc(doc(db, "users", uid));
+      const userData = userDoc.data();
+      console.log(userData);
+      if (userData.role === "admin") {
+        navigate("/admin/dashboard");
+        } else {
+        navigate("/employee/dashboard");
+        }
 
-      // Redirect dashboard
-      navigate("/admin/dashboard");
+      
 
     } catch (error) {
 

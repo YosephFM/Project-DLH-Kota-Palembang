@@ -1,14 +1,9 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
-
+import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Login from "./pages/auth/Login";
-
 import Register from "./pages/auth/Register";
-
 import Dashboard from "./pages/admin/Dashboard";
+import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
 
@@ -30,8 +25,19 @@ function App() {
 
         <Route
           path="/admin/dashboard"
-          element={<Dashboard />}
+          element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>}
         />
+        <Route
+          path="/employee/dashboard"
+          element={
+          <ProtectedRoute>
+            <EmployeeDashboard />
+          </ProtectedRoute>}
+        />
+
 
       </Routes>
 
