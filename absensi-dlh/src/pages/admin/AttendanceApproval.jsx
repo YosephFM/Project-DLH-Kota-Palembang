@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
-import {collection,getDocs,doc,updateDoc} from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  doc,
+  updateDoc
+} from "firebase/firestore";
 
 import { db } from "../../firebase/firebase";
 import AdminLayout from "../../layouts/AdminLayout";
 
 function AttendanceApproval() {
   const [attendance, setAttendance] = useState([]);
+  const [statusFilter, setStatusFilter] = useState("all");
 
   const getAttendance = async () => {
     const querySnapshot = await getDocs(collection(db, "attendance"));
@@ -34,6 +40,10 @@ function AttendanceApproval() {
     }
   };
 
+  const filteredAttendance = attendance.filter((item) => {
+    return statusFilter === "all" || item.status === statusFilter;
+  });
+
   useEffect(() => {
     getAttendance();
   }, []);
@@ -41,13 +51,27 @@ function AttendanceApproval() {
   return (
     <AdminLayout>
       <div className="space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-800">
-            Approval Absensi
-          </h1>
-          <p className="text-gray-500 mt-1">
-            Verifikasi bukti kehadiran pegawai
-          </p>
+        <div className="flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-800">
+              Approval Absensi
+            </h1>
+
+            <p className="text-gray-500 mt-1">
+              Verifikasi bukti kehadiran pegawai
+            </p>
+          </div>
+
+          <select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            className="border px-4 py-3 rounded-xl"
+          >
+            <option value="all">Semua Status</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Rejected</option>
+          </select>
         </div>
 
         <div className="bg-white rounded-2xl shadow-sm p-6">
@@ -64,7 +88,7 @@ function AttendanceApproval() {
               </thead>
 
               <tbody>
-                {attendance.map((item) => (
+                {filteredAttendance.map((item) => (
                   <tr key={item.id} className="border-b">
                     <td className="py-4">{item.email}</td>
 
@@ -127,6 +151,12 @@ function AttendanceApproval() {
             {attendance.length === 0 && (
               <p className="text-center text-gray-500 mt-6">
                 Belum ada data absensi
+              </p>
+            )}
+
+            {attendance.length > 0 && filteredAttendance.length === 0 && (
+              <p className="text-center text-gray-500 mt-6">
+                Data absensi dengan status tersebut tidak ditemukan
               </p>
             )}
           </div>
