@@ -3,10 +3,12 @@ import { useState } from "react";
 import {doc,setDoc} from "firebase/firestore";
 
 import {createUserWithEmailAndPassword} from "firebase/auth";
-
+import { useNavigate }from "react-router-dom";
 import { db, auth }from "../../firebase/firebase";
+import { Link } from "react-router-dom";
 
 function Register() {
+  const navigate = useNavigate();
 
   const [name, setName] = useState("");
 
@@ -41,6 +43,7 @@ function Register() {
       );
 
       alert("Register berhasil");
+      navigate("/");
 
     } catch (error) {
 
@@ -91,6 +94,19 @@ function Register() {
         >
           Register
         </button>
+        <p className="text-center mt-4">
+
+            Sudah punya akun?
+
+           <Link
+              to="/"
+              className="text-green-600 font-semibold ml-1"
+            >
+              Login
+          </Link>
+
+        </p>
+
 
       </div>
 

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword }from "firebase/auth";
 import { auth }from "../../firebase/firebase";
 import { db }from "../../firebase/firebase";
+import { Link } from "react-router-dom";
 
 function Login() {
 
@@ -139,6 +140,18 @@ function Login() {
             : "Login"}
 
         </button>
+        <p className="text-center mt-4">
+
+          Belum punya akun?
+
+          <Link
+            to="/register"
+            className="text-green-600 font-semibold ml-1"
+          >
+            Register
+          </Link>
+
+        </p>
 
       </form>
 

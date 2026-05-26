@@ -1,10 +1,5 @@
-import {
-  LayoutDashboard,
-  Users,
-  ClipboardList,
-  FileText,
-  Settings
-} from "lucide-react";
+import {LayoutDashboard,Users,ClipboardList,FileText,Settings} from "lucide-react";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
 
@@ -18,20 +13,29 @@ function Sidebar() {
 
       <ul className="space-y-5">
 
-        <li className="flex items-center gap-3 cursor-pointer">
-          <LayoutDashboard size={20} />
-          Dashboard
-        </li>
+        <Link
+            to="/admin/dashboard"
+            className="flex items-center gap-3"
+          >
+            <LayoutDashboard size={20} />
+              Dashboard
+          </Link>
 
-        <li className="flex items-center gap-3 cursor-pointer">
-          <Users size={20} />
-          Pegawai
-        </li>
+          <Link
+            to="/admin/employees"
+            className="flex items-center gap-3"
+          >
+            <Users size={20} />
+              Pegawai
+          </Link>
 
-        <li className="flex items-center gap-3 cursor-pointer">
-          <ClipboardList size={20} />
-          Absensi
-        </li>
+          <Link
+            to="/admin/attendance"
+            className="flex items-center gap-3"
+          >
+            <ClipboardList size={20} />
+              Absensi
+          </Link>
 
         <li className="flex items-center gap-3 cursor-pointer">
           <FileText size={20} />
