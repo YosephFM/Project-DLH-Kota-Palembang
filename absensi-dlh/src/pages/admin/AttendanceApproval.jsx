@@ -3,7 +3,7 @@ import {
   collection,
   getDocs,
   doc,
-  updateDoc
+  updateDoc,
 } from "firebase/firestore";
 
 import { db } from "../../firebase/firebase";
@@ -11,7 +11,6 @@ import AdminLayout from "../../layouts/AdminLayout";
 
 function AttendanceApproval() {
   const [attendance, setAttendance] = useState([]);
-  const [statusFilter, setStatusFilter] = useState("all");
 
   const getAttendance = async () => {
     const querySnapshot = await getDocs(collection(db, "attendance"));
@@ -27,12 +26,11 @@ function AttendanceApproval() {
   const handleUpdateStatus = async (id, status) => {
     try {
       await updateDoc(doc(db, "attendance", id), {
-        status: status,
+        status,
         updatedAt: new Date(),
       });
 
       alert(`Absensi berhasil di-${status}`);
-
       getAttendance();
     } catch (error) {
       console.log(error);
@@ -40,8 +38,8 @@ function AttendanceApproval() {
     }
   };
 
-  const filteredAttendance = attendance.filter((item) => {
-    return statusFilter === "all" || item.status === statusFilter;
+  const pendingAttendance = attendance.filter((item) => {
+    return item.status === "pending";
   });
 
   useEffect(() => {
@@ -51,27 +49,14 @@ function AttendanceApproval() {
   return (
     <AdminLayout>
       <div className="space-y-6">
-        <div className="flex justify-between items-center">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-800">
-              Approval Absensi
-            </h1>
+        <div>
+          <h1 className="text-3xl font-bold text-gray-800">
+            Approval Absensi
+          </h1>
 
-            <p className="text-gray-500 mt-1">
-              Verifikasi bukti kehadiran pegawai
-            </p>
-          </div>
-
-          <select
-            value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value)}
-            className="border px-4 py-3 rounded-xl"
-          >
-            <option value="all">Semua Status</option>
-            <option value="pending">Pending</option>
-            <option value="approved">Approved</option>
-            <option value="rejected">Rejected</option>
-          </select>
+          <p className="text-gray-500 mt-1">
+            Verifikasi bukti kehadiran pegawai yang masih pending
+          </p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-sm p-6">
@@ -88,7 +73,7 @@ function AttendanceApproval() {
               </thead>
 
               <tbody>
-                {filteredAttendance.map((item) => (
+                {pendingAttendance.map((item) => (
                   <tr key={item.id} className="border-b">
                     <td className="py-4">{item.email}</td>
 
@@ -111,15 +96,7 @@ function AttendanceApproval() {
                     </td>
 
                     <td className="py-4">
-                      <span
-                        className={`px-3 py-1 rounded-full text-sm ${
-                          item.status === "approved"
-                            ? "bg-green-100 text-green-700"
-                            : item.status === "rejected"
-                            ? "bg-red-100 text-red-700"
-                            : "bg-yellow-100 text-yellow-700"
-                        }`}
-                      >
+                      <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">
                         {item.status}
                       </span>
                     </td>
@@ -148,15 +125,9 @@ function AttendanceApproval() {
               </tbody>
             </table>
 
-            {attendance.length === 0 && (
+            {pendingAttendance.length === 0 && (
               <p className="text-center text-gray-500 mt-6">
-                Belum ada data absensi
-              </p>
-            )}
-
-            {attendance.length > 0 && filteredAttendance.length === 0 && (
-              <p className="text-center text-gray-500 mt-6">
-                Data absensi dengan status tersebut tidak ditemukan
+                Tidak ada absensi pending
               </p>
             )}
           </div>

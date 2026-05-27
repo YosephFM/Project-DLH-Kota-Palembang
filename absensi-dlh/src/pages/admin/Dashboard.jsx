@@ -10,7 +10,17 @@ import {
   collection,
   getDocs
 } from "firebase/firestore";
-
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { db } from "../../firebase/firebase";
 import AdminLayout from "../../layouts/AdminLayout";
 import StatCard from "../../components/StatCard";
@@ -21,6 +31,7 @@ function Dashboard() {
   const [pendingCount, setPendingCount] = useState(0);
   const [rejectedCount, setRejectedCount] = useState(0);
   const [recentAttendance, setRecentAttendance] = useState([]);
+  const [chartData, setChartData] = useState([]);
 
   const getDashboardData = async () => {
     try {
@@ -36,6 +47,20 @@ function Dashboard() {
         id: doc.id,
         ...doc.data(),
       }));
+      setChartData([
+  {
+    name: "Approved",
+    value: attendanceData.filter((item) => item.status === "approved").length,
+  },
+  {
+    name: "Pending",
+    value: attendanceData.filter((item) => item.status === "pending").length,
+  },
+  {
+    name: "Rejected",
+    value: attendanceData.filter((item) => item.status === "rejected").length,
+  },
+]);
 
       setTotalEmployees(usersData.length);
 
@@ -109,6 +134,54 @@ function Dashboard() {
             color="bg-red-100"
           />
         </div>
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+  <div className="bg-white rounded-2xl shadow-sm p-6">
+    <h2 className="text-xl font-semibold mb-4">
+      Grafik Status Absensi
+    </h2>
+
+    <ResponsiveContainer width="100%" height={300}>
+      <PieChart>
+        <Pie
+          data={chartData}
+          dataKey="value"
+          nameKey="name"
+          outerRadius={100}
+          label
+        >
+          {chartData.map((entry, index) => (
+            <Cell
+              key={`cell-${index}`}
+              fill={
+                entry.name === "Approved"
+                  ? "#22c55e"
+                  : entry.name === "Pending"
+                  ? "#eab308"
+                  : "#ef4444"
+              }
+            />
+          ))}
+        </Pie>
+        <Tooltip />
+      </PieChart>
+    </ResponsiveContainer>
+  </div>
+
+  <div className="bg-white rounded-2xl shadow-sm p-6">
+    <h2 className="text-xl font-semibold mb-4">
+      Ringkasan Status
+    </h2>
+
+    <ResponsiveContainer width="100%" height={300}>
+      <BarChart data={chartData}>
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Bar dataKey="value" />
+      </BarChart>
+    </ResponsiveContainer>
+  </div>
+</div>
 
         <div className="bg-white rounded-2xl shadow-sm p-6">
           <h2 className="text-xl font-semibold mb-4">

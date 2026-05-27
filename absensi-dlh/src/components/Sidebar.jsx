@@ -37,10 +37,10 @@ function Sidebar() {
               Absensi
           </Link>
 
-        <li className="flex items-center gap-3 cursor-pointer">
+        <Link to="/admin/reports" className="flex items-center gap-3">
           <FileText size={20} />
-          Laporan
-        </li>
+            Laporan
+          </Link>
 
         <li className="flex items-center gap-3 cursor-pointer">
           <Settings size={20} />
