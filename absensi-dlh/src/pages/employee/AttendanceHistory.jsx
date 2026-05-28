@@ -44,7 +44,7 @@ function AttendanceHistory() {
               <thead>
                 <tr className="border-b text-gray-500">
                   <th className="py-4">Tanggal</th>
-                  <th className="py-4">Keterangan</th>
+                  <th className="py-4">Lokasi</th>
                   <th className="py-4">Foto</th>
                   <th className="py-4">Status</th>
                 </tr>
@@ -60,7 +60,7 @@ function AttendanceHistory() {
                     </td>
 
                     <td className="py-4">
-                      {item.description || "-"}
+                      {item.workLocation || "-"}
                     </td>
 
                     <td className="py-4">

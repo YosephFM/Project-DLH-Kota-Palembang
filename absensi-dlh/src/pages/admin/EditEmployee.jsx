@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-
+import toast from "react-hot-toast";
 import { db } from "../../firebase/firebase";
 import AdminLayout from "../../layouts/AdminLayout";
 
@@ -27,7 +27,7 @@ function EditEmployee() {
       setRole(data.role || "employee");
       setStatus(data.status || "active");
     } else {
-      alert("Data pegawai tidak ditemukan");
+      toast.error("Data pegawai tidak ditemukan");
       navigate("/admin/employees");
     }
   };
@@ -45,11 +45,11 @@ function EditEmployee() {
         updatedAt: new Date(),
       });
 
-      alert("Data pegawai berhasil diperbarui");
+      toast.success("Data pegawai berhasil diperbarui");
       navigate("/admin/employees");
     } catch (error) {
       console.log(error);
-      alert("Gagal memperbarui data pegawai");
+      toast.error("Gagal memperbarui data pegawai");
     } finally {
       setIsLoading(false);
     }

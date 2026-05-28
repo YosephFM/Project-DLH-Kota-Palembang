@@ -5,7 +5,7 @@ import {
   doc,
   updateDoc,
 } from "firebase/firestore";
-
+import toast from "react-hot-toast";
 import { db } from "../../firebase/firebase";
 import AdminLayout from "../../layouts/AdminLayout";
 
@@ -30,11 +30,11 @@ function AttendanceApproval() {
         updatedAt: new Date(),
       });
 
-      alert(`Absensi berhasil di-${status}`);
+      toast.success(`Absensi berhasil di-${status}`);
       getAttendance();
     } catch (error) {
       console.log(error);
-      alert("Gagal update status absensi");
+      toast.error("Gagal update status absensi");
     }
   };
 
@@ -65,7 +65,7 @@ function AttendanceApproval() {
               <thead>
                 <tr className="border-b text-gray-500">
                   <th className="py-4">Email</th>
-                  <th className="py-4">Keterangan</th>
+                  <th className="py-4">Lokasi</th>
                   <th className="py-4">Foto</th>
                   <th className="py-4">Status</th>
                   <th className="py-4">Aksi</th>
@@ -78,7 +78,7 @@ function AttendanceApproval() {
                     <td className="py-4">{item.email}</td>
 
                     <td className="py-4">
-                      {item.description || "-"}
+                      {item.workLocation || "-"}
                     </td>
 
                     <td className="py-4">

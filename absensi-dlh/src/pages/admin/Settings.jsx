@@ -9,7 +9,7 @@ import {
   getDoc,
   updateDoc,
 } from "firebase/firestore";
-
+import toast from "react-hot-toast";
 import AdminLayout from "../../layouts/AdminLayout";
 import { auth, db } from "../../firebase/firebase";
 
@@ -53,17 +53,17 @@ function Settings() {
         displayName: name,
       });
 
-      alert("Profil berhasil diperbarui");
+      toast.success("Profil berhasil diperbarui");
     } catch (error) {
       console.log(error);
-      alert("Gagal update profil");
+      toast.error("Gagal update profil");
     }
   };
 
   const handleChangePassword = async () => {
     try {
       if (newPassword.length < 6) {
-        return alert("Password minimal 6 karakter");
+        return toast.error("Password minimal 6 karakter");
       }
 
       await updatePassword(
@@ -71,12 +71,12 @@ function Settings() {
         newPassword
       );
 
-      alert("Password berhasil diubah");
+      toast.success("Password berhasil diubah");
 
       setNewPassword("");
     } catch (error) {
       console.log(error);
-      alert("Gagal mengubah password");
+      toast.error("Gagal mengubah password");
     }
   };
 

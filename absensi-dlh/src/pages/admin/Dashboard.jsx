@@ -193,7 +193,7 @@ function Dashboard() {
               <thead>
                 <tr className="border-b text-gray-500">
                   <th className="py-3">Email</th>
-                  <th className="py-3">Keterangan</th>
+                  <th className="py-3">Lokasi</th>
                   <th className="py-3">Tanggal</th>
                   <th className="py-3">Status</th>
                   <th className="py-3">Foto</th>
@@ -204,7 +204,7 @@ function Dashboard() {
                 {recentAttendance.map((item) => (
                   <tr key={item.id} className="border-b">
                     <td className="py-3">{item.email}</td>
-                    <td className="py-3">{item.description || "-"}</td>
+                    <td className="py-3">{item.workLocation || "-"}</td>
                     <td className="py-3">
                       {item.createdAt?.toDate
                         ? item.createdAt.toDate().toLocaleString("id-ID")

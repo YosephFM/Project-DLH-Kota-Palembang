@@ -7,7 +7,7 @@ import {
   deleteDoc,
   doc
 } from "firebase/firestore";
-
+import toast from "react-hot-toast";
 import { db } from "../../firebase/firebase";
 import AdminLayout from "../../layouts/AdminLayout";
 
@@ -48,7 +48,7 @@ function Employees() {
 
       await deleteDoc(doc(db, "users", id));
 
-      alert("Pegawai berhasil dihapus");
+      toast.success("Pegawai berhasil dihapus");
 
       getEmployees();
 
@@ -56,7 +56,7 @@ function Employees() {
 
       console.log(error);
 
-      alert("Gagal menghapus pegawai");
+      toast.error("Gagal menghapus pegawai");
     }
   };
 

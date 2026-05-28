@@ -80,8 +80,8 @@ function TodayAttendance() {
               </p>
 
               <p>
-                <strong>Keterangan:</strong>{" "}
-                {attendance.description || "-"}
+                <strong>Lokasi:</strong>{" "}
+                {attendance.workLocation || "-"}
               </p>
 
               <p>

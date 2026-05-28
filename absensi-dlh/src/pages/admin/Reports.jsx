@@ -48,7 +48,7 @@ function Reports() {
   const handleExportExcel = () => {
     const exportData = filteredAttendance.map((item) => ({
       Email: item.email,
-      Keterangan: item.description || "-",
+      Lokasi: item.workLocation || "-",
       Status: item.status,
       Tanggal: item.createdAt?.toDate
         ? item.createdAt.toDate().toLocaleString("id-ID")
@@ -84,7 +84,7 @@ function Reports() {
 
     const tableData = filteredAttendance.map((item) => [
       item.email,
-      item.description || "-",
+      item.workLocation || "-",
       item.status,
       item.createdAt?.toDate
         ? item.createdAt.toDate().toLocaleString("id-ID")
@@ -93,7 +93,7 @@ function Reports() {
 
     autoTable(doc, {
       startY: 40,
-      head: [["Email", "Keterangan", "Status", "Tanggal"]],
+      head: [["Email", "Lokasi", "Status", "Tanggal"]],
       body: tableData,
     });
 
@@ -165,7 +165,7 @@ function Reports() {
               <thead>
                 <tr className="border-b text-gray-500">
                   <th className="py-4">Email</th>
-                  <th className="py-4">Keterangan</th>
+                  <th className="py-4">Lokasi</th>
                   <th className="py-4">Status</th>
                   <th className="py-4">Tanggal</th>
                   <th className="py-4">Foto</th>
@@ -176,7 +176,7 @@ function Reports() {
                 {filteredAttendance.map((item) => (
                   <tr key={item.id} className="border-b">
                     <td className="py-4">{item.email}</td>
-                    <td className="py-4">{item.description || "-"}</td>
+                    <td className="py-4">{item.workLocation || "-"}</td>
                     <td className="py-4">
                       <span
                         className={`px-3 py-1 rounded-full text-sm ${

@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-
+import toast from "react-hot-toast";
 import { auth, db } from "../../firebase/firebase";
 import AdminLayout from "../../layouts/AdminLayout";
 
@@ -11,7 +12,8 @@ function AddEmployee() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("123456");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [role, setRole] = useState("employee");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -34,11 +36,11 @@ function AddEmployee() {
         createdAt: new Date(),
       });
 
-      alert("Pegawai berhasil ditambahkan");
+      toast.success("Pegawai berhasil ditambahkan");
       navigate("/admin/employees");
     } catch (error) {
       console.log(error);
-      alert("Gagal tambah pegawai");
+      toast.error("Gagal menambahkan pegawai");
     } finally {
       setIsLoading(false);
     }
@@ -66,14 +68,27 @@ function AddEmployee() {
             required
           />
 
+          <div className="relative">
           <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            className="w-full border p-3 rounded-xl"
-            onChange={(e) => setPassword(e.target.value)}
-            required
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full border p-4 rounded-2xl pr-12"
           />
+
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
+          >
+            {showPassword ? (
+              <EyeOff size={22} />
+            ) : (
+              <Eye size={22} />
+            )}
+          </button>
+        </div>
 
           <select
             className="w-full border p-3 rounded-xl"
