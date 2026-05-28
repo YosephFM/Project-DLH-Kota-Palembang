@@ -41,10 +41,10 @@ function TodayAttendance() {
     <EmployeeLayout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold text-gray-800">
+          <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
             Absensi Hari Ini
           </h1>
-          <p className="text-gray-500 mt-1">
+          <p className="text-gray-500 dark:text-gray-300 mt-1">
             Informasi status absensi Anda hari ini
           </p>
         </div>

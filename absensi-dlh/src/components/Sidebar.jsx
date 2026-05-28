@@ -5,7 +5,7 @@ function Sidebar() {
 
   return (
 
-    <div className="w-64 bg-green-700 text-white min-h-screen p-5">
+    <div className="w-64 bg-green-700 dark:bg-gray-950 text-white min-h-full h-full p-5">
 
       <h1 className="text-2xl font-bold mb-10">
         DLH Absensi
@@ -42,10 +42,10 @@ function Sidebar() {
             Laporan
           </Link>
 
-        <li className="flex items-center gap-3 cursor-pointer">
+        <Link to="/admin/settings" className="flex items-center gap-3">
           <Settings size={20} />
-          Settings
-        </li>
+            Settings
+          </Link>
 
       </ul>
 

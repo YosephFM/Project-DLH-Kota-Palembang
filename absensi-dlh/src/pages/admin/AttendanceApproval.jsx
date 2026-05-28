@@ -50,11 +50,11 @@ function AttendanceApproval() {
     <AdminLayout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold text-gray-800">
+          <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
             Approval Absensi
           </h1>
 
-          <p className="text-gray-500 mt-1">
+          <p className="text-gray-500 dark:text-gray-300 mt-1">
             Verifikasi bukti kehadiran pegawai yang masih pending
           </p>
         </div>

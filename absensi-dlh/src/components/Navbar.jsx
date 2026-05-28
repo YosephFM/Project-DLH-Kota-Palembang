@@ -23,9 +23,9 @@ function Navbar() {
 
   return (
 
-    <div className="bg-white shadow px-6 py-4 flex justify-between items-center">
+    <div className="bg-white dark:bg-gray-800 shadow px-6 py-4 flex justify-between items-center">
 
-      <h1 className="text-xl font-semibold">
+      <h1 className="text-xl font-semibold text-gray-800 dark:text-white">
         Dashboard
       </h1>
 

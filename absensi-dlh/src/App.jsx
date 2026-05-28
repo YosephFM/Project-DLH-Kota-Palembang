@@ -12,6 +12,8 @@ import AttendanceApproval from "./pages/admin/AttendanceApproval";
 import AttendanceHistory from "./pages/employee/AttendanceHistory";
 import TodayAttendance from "./pages/employee/TodayAttendance";
 import Reports from "./pages/admin/Reports";
+import Settings from "./pages/admin/Settings";
+import EmployeeSettings from "./pages/employee/EmployeeSettings";
 
 function App() {
 
@@ -106,6 +108,22 @@ function App() {
           element={
             <ProtectedRoute>
               <Reports />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+        path="/admin/settings"
+          element={
+            <ProtectedRoute>
+              <Settings />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+        path="/employee/settings"
+          element={
+            <ProtectedRoute>
+              <EmployeeSettings />
             </ProtectedRoute>
           }
         />

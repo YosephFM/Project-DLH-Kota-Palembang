@@ -4,12 +4,12 @@ import {
   Upload,
   History,
   Eye,
-  LogOut
+  Settings as SettingsIcon,
 } from "lucide-react";
 
 function EmployeeSidebar() {
   return (
-    <div className="w-64 bg-green-700 text-white min-h-screen p-5">
+    <div className="w-64 bg-green-700 dark:bg-gray-950 text-white min-h-full h-full p-5">
       <h1 className="text-2xl font-bold mb-10">
         DLH Pegawai
       </h1>
@@ -33,6 +33,10 @@ function EmployeeSidebar() {
         <Link to="/employee/attendance" className="flex items-center gap-3">
           <Eye size={20} />
           Lihat Absensi
+        </Link>
+        <Link to="/employee/settings" className="flex items-center gap-3">
+          <SettingsIcon size={20} />
+          Settings
         </Link>
       </ul>
     </div>

@@ -77,11 +77,11 @@ function EmployeeDashboard() {
 
       <div className="mb-6">
 
-        <h1 className="text-3xl font-bold text-gray-800">
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
           Dashboard Pegawai
         </h1>
 
-        <p className="text-gray-500 mt-1">
+        <p className="text-gray-500 dark:text-gray-300 mt-1">
           Kelola kehadiran dan riwayat absensi Anda
         </p>
 
