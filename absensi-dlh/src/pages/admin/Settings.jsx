@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 import {
   updatePassword,
   updateProfile,
@@ -17,7 +18,7 @@ function Settings() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
-
+  const [showPassword, setShowPassword] = useState(false);
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("theme") === "dark"
   );
@@ -155,16 +156,23 @@ function Settings() {
           </h2>
 
           <div className="space-y-4">
+            <div className="relative">
             <input
-              type="password"
-              placeholder="Password Baru"
-              value={newPassword}
-              onChange={(e) =>
-                setNewPassword(e.target.value)
-              }
-              className="w-full border px-4 py-3 rounded-xl dark:bg-gray-700 dark:text-white"
+                type={showPassword ? "text" : "password"}
+                placeholder="Password Baru"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                className="w-full border px-4 py-3 rounded-xl pr-12 dark:bg-gray-700 dark:text-white"
             />
 
+            <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
+            >
+                {showPassword ? <EyeOff size={22} /> : <Eye size={22} />}
+            </button>
+            </div>
             <button
               onClick={handleChangePassword}
               className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl"

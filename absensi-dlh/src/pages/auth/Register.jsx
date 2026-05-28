@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Eye, EyeOff } from "lucide-react";
 import {doc,setDoc} from "firebase/firestore";
 
 import {createUserWithEmailAndPassword} from "firebase/auth";
@@ -9,12 +9,10 @@ import { Link } from "react-router-dom";
 
 function Register() {
   const navigate = useNavigate();
-
   const [name, setName] = useState("");
-
   const [email, setEmail] = useState("");
-
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   // Function Register
   const handleRegister = async () => {
@@ -80,12 +78,23 @@ function Register() {
         />
 
         {/* Password */}
+        <div className="relative mb-4">
         <input
-          type="password"
-          placeholder="Password"
-          className="w-full border p-3 rounded mb-4"
-          onChange={(e) => setPassword(e.target.value)}
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            value={password}
+            className="w-full border p-3 rounded pr-12"
+            onChange={(e) => setPassword(e.target.value)}
         />
+
+        <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+          >
+          {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+        </button>
+        </div>
 
         {/* Button */}
         <button
