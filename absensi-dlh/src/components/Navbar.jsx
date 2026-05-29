@@ -23,9 +23,9 @@ function Navbar() {
 
   return (
 
-    <div className="bg-white border-b border-slate-200 shadow-sm px-6 py-4 flex justify-between items-center">
+    <div className="bg-white/90 dark:bg-slate-900/90 border-b border-slate-200 dark:border-slate-800 shadow-sm backdrop-blur-md px-6 py-4 flex justify-between items-center">
 
-      <h1 className="text-xl font-semibold text-slate-900">
+      <h1 className="text-xl font-semibold text-slate-900 dark:text-white">
         Panel Admin
       </h1>
 
