@@ -1,5 +1,6 @@
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import { AuthProvider } from "./context/AuthContext";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Dashboard from "./pages/admin/Dashboard";
@@ -21,10 +22,11 @@ function App() {
 
   return (
 
-    <BrowserRouter>
-      <Toaster position="top-right" />
+    <AuthProvider>
+      <BrowserRouter>
+        <Toaster position="top-right" />
 
-      <Routes>
+        <Routes>
 
         <Route
           path="/"
@@ -135,6 +137,7 @@ function App() {
       </Routes>
 
     </BrowserRouter>
+    </AuthProvider>
   );
 }
 
