@@ -87,14 +87,22 @@ function EmployeeSettings() {
     getUserData();
     const savedTheme = localStorage.getItem("theme");
 
-  if (savedTheme === "dark") {
-    setDarkMode(true);
-    document.documentElement.classList.add("dark");
-  } else {
-    setDarkMode(false);
-    document.documentElement.classList.remove("dark");
-  }
+    if (savedTheme === "dark") {
+      setDarkMode(true);
+      document.documentElement.classList.add("dark");
+    } else {
+      setDarkMode(false);
+      document.documentElement.classList.remove("dark");
+    }
   }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
 
   return (
     <EmployeeLayout>
@@ -177,11 +185,15 @@ function EmployeeSettings() {
 
             <button
                 onClick={handleToggleTheme}
-                className="bg-gray-900 text-white px-5 py-3 rounded-xl"
+                className={`px-5 py-3 rounded-2xl shadow-md transition-colors duration-200 text-white font-medium ${
+                  darkMode
+                    ? "bg-amber-600 hover:bg-amber-700"
+                    : "bg-slate-900 hover:bg-slate-800"
+                }`}
             >
                 {darkMode
-                ? "Switch to Light Mode"
-                : "Switch to Dark Mode"}
+                ? "☀️ Switch to Light Mode"
+                : "🌙 Switch to Dark Mode"}
             </button>
         </div>
       </div>

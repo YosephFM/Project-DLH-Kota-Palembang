@@ -97,13 +97,15 @@ function Settings() {
 
   useEffect(() => {
     getUserData();
+  }, []);
 
+  useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
-  }, []);
+  }, [darkMode]);
 
   return (
     <AdminLayout>
@@ -187,9 +189,13 @@ function Settings() {
 
           <button
             onClick={handleToggleTheme}
-            className="bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-2xl shadow-md transition-colors duration-200"
+            className={`px-5 py-3 rounded-2xl shadow-md transition-colors duration-200 text-white font-medium ${
+              darkMode
+                ? "bg-amber-600 hover:bg-amber-700"
+                : "bg-slate-900 hover:bg-slate-800"
+            }`}
           >
-            {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            {darkMode ? "☀️ Switch to Light Mode" : "🌙 Switch to Dark Mode"}
           </button>
         </div>
       </div>
