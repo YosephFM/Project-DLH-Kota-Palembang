@@ -91,9 +91,9 @@ function EmployeeDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
 
         {/* Status Hari Ini */}
-        <div className="bg-white p-6 rounded-2xl shadow-sm">
+        <div className="card-surface p-6">
 
-          <Clock className="text-green-600 mb-3" />
+          <Clock className="text-emerald-600 mb-3" />
 
           <p className="text-gray-500">
             Status Hari Ini
@@ -108,9 +108,9 @@ function EmployeeDashboard() {
         </div>
 
         {/* Total Attendance */}
-        <div className="bg-white p-6 rounded-2xl shadow-sm">
+        <div className="card-surface p-6">
 
-          <Eye className="text-blue-600 mb-3" />
+          <Eye className="text-sky-600 mb-3" />
 
           <p className="text-gray-500">
             Total Kehadiran
@@ -125,9 +125,9 @@ function EmployeeDashboard() {
         </div>
 
         {/* Last Status */}
-        <div className="bg-white p-6 rounded-2xl shadow-sm">
+        <div className="card-surface p-6">
 
-          <History className="text-yellow-600 mb-3" />
+          <History className="text-amber-600 mb-3" />
 
           <p className="text-gray-500">
             Status Terakhir
@@ -149,7 +149,7 @@ function EmployeeDashboard() {
         {/* Upload */}
         <button
           onClick={() => navigate("/employee/upload")}
-          className="bg-white p-6 rounded-2xl shadow-sm text-left hover:scale-[1.02] transition-all duration-200"
+          className="card-surface p-6 text-left hover:scale-[1.02] transition-all duration-200"
         >
 
           <Upload className="text-green-600 mb-3" />
@@ -167,7 +167,7 @@ function EmployeeDashboard() {
         {/* History */}
         <button
           onClick={() => navigate("/employee/history")}
-          className="bg-white p-6 rounded-2xl shadow-sm text-left hover:scale-[1.02] transition-all duration-200"
+          className="card-surface p-6 text-left hover:scale-[1.02] transition-all duration-200"
         >
 
           <History className="text-blue-600 mb-3" />
@@ -185,7 +185,7 @@ function EmployeeDashboard() {
         {/* Status */}
         <button
           onClick={() => navigate("/employee/attendance")}
-          className="bg-white p-6 rounded-2xl shadow-sm text-left hover:scale-[1.02] transition-all duration-200"
+          className="card-surface p-6 text-left hover:scale-[1.02] transition-all duration-200"
         >
 
           <Eye className="text-purple-600 mb-3" />

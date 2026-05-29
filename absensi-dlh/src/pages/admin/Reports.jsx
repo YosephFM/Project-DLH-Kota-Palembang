@@ -121,7 +121,7 @@ function Reports() {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="border px-4 py-3 rounded-xl"
+              className="border px-4 py-3 rounded-xl bg-white text-slate-900 dark:bg-slate-800 dark:text-slate-100"
             >
               <option value="all">Semua Status</option>
               <option value="pending">Pending</option>
@@ -133,14 +133,14 @@ function Reports() {
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="border px-4 py-3 rounded-xl"
+              className="border px-4 py-3 rounded-xl bg-white text-slate-900 dark:bg-slate-800 dark:text-slate-100"
             />
 
             <input
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
-              className="border px-4 py-3 rounded-xl"
+              className="border px-4 py-3 rounded-xl bg-white text-slate-900 dark:bg-slate-800 dark:text-slate-100"
             />
 
             <button
@@ -159,7 +159,7 @@ function Reports() {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm p-6">
+        <div className="card-surface p-6">
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>

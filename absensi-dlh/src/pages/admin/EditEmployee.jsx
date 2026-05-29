@@ -61,15 +61,15 @@ function EditEmployee() {
 
   return (
     <AdminLayout>
-      <div className="max-w-2xl bg-white rounded-2xl shadow-sm p-6">
-        <h1 className="text-2xl font-bold mb-6">Edit Pegawai</h1>
+      <div className="max-w-2xl card-surface p-6 mx-auto">
+        <h1 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Edit Pegawai</h1>
 
         <form onSubmit={handleUpdateEmployee} className="space-y-4">
           <input
             type="text"
             placeholder="Nama lengkap"
             value={name}
-            className="w-full border p-3 rounded-xl"
+            className="input-field"
             onChange={(e) => setName(e.target.value)}
             required
           />
@@ -78,13 +78,13 @@ function EditEmployee() {
             type="email"
             placeholder="Email"
             value={email}
-            className="w-full border p-3 rounded-xl"
+            className="input-field"
             onChange={(e) => setEmail(e.target.value)}
             required
           />
 
           <select
-            className="w-full border p-3 rounded-xl"
+            className="input-field"
             value={role}
             onChange={(e) => setRole(e.target.value)}
           >
@@ -93,7 +93,7 @@ function EditEmployee() {
           </select>
 
           <select
-            className="w-full border p-3 rounded-xl"
+            className="input-field"
             value={status}
             onChange={(e) => setStatus(e.target.value)}
           >
@@ -105,7 +105,7 @@ function EditEmployee() {
             <button
               type="submit"
               disabled={isLoading}
-              className="bg-green-600 text-white px-5 py-3 rounded-xl"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3 rounded-2xl shadow-md transition-colors duration-200"
             >
               {isLoading ? "Menyimpan..." : "Update"}
             </button>
@@ -113,7 +113,7 @@ function EditEmployee() {
             <button
               type="button"
               onClick={() => navigate("/admin/employees")}
-              className="bg-gray-200 px-5 py-3 rounded-xl"
+              className="bg-slate-200 hover:bg-slate-300 text-slate-900 px-5 py-3 rounded-2xl transition-colors duration-200"
             >
               Batal
             </button>

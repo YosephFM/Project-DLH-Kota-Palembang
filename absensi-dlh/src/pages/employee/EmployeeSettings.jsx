@@ -108,8 +108,8 @@ function EmployeeSettings() {
           </p>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">
+        <div className="card-surface p-6">
+          <h2 className="text-xl font-semibold mb-4 text-slate-900 dark:text-white">
             Profil Pegawai
           </h2>
 
@@ -119,14 +119,14 @@ function EmployeeSettings() {
               placeholder="Nama"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full border px-4 py-3 rounded-xl dark:bg-gray-700 dark:text-white"
+              className="input-field"
             />
 
             <input
               type="email"
               value={email}
               disabled
-              className="w-full border px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-700 dark:text-white"
+              className="input-field cursor-not-allowed"
             />
 
             <button
@@ -138,28 +138,28 @@ function EmployeeSettings() {
           </div>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">
+        <div className="card-surface p-6">
+          <h2 className="text-xl font-semibold mb-4 text-slate-900 dark:text-white">
             Ganti Password
           </h2>
 
           <div className="space-y-4">
             <div className="relative">
-            <input
+              <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Password Baru"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
-                className="w-full border px-4 py-3 rounded-xl pr-12 dark:bg-gray-700 dark:text-white"
-            />
+                className="input-field pr-12"
+              />
 
-            <button
+              <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
-            >
+              >
                 {showPassword ? <EyeOff size={22} /> : <Eye size={22} />}
-            </button>
+              </button>
             </div>
 
             <button
@@ -170,8 +170,8 @@ function EmployeeSettings() {
             </button>
           </div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6">
-            <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">
+        <div className="card-surface p-6">
+            <h2 className="text-xl font-semibold mb-4 text-slate-900 dark:text-white">
                 Tampilan
             </h2>
 

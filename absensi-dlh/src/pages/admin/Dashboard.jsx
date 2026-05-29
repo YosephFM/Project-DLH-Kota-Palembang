@@ -135,8 +135,8 @@ function Dashboard() {
           />
         </div>
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-  <div className="bg-white rounded-2xl shadow-sm p-6">
-    <h2 className="text-xl font-semibold mb-4">
+  <div className="card-surface p-6">
+    <h2 className="text-xl font-semibold mb-4 text-slate-900 dark:text-white">
       Grafik Status Absensi
     </h2>
 
@@ -167,24 +167,24 @@ function Dashboard() {
     </ResponsiveContainer>
   </div>
 
-  <div className="bg-white rounded-2xl shadow-sm p-6">
-    <h2 className="text-xl font-semibold mb-4">
+  <div className="card-surface p-6">
+    <h2 className="text-xl font-semibold mb-4 text-slate-900 dark:text-white">
       Ringkasan Status
     </h2>
 
     <ResponsiveContainer width="100%" height={300}>
       <BarChart data={chartData}>
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Bar dataKey="value" />
+        <XAxis dataKey="name" tick={{ fill: '#64748b' }} axisLine={false} tickLine={false} />
+        <YAxis tick={{ fill: '#64748b' }} axisLine={false} tickLine={false} />
+        <Tooltip cursor={{ fill: 'rgba(15, 23, 42, 0.05)' }} />
+        <Bar dataKey="value" fill="#22c55e" radius={[12, 12, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
   </div>
 </div>
 
-        <div className="bg-white rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-semibold mb-4">
+        <div className="card-surface p-6">
+          <h2 className="text-xl font-semibold mb-4 text-slate-900 dark:text-white">
             Absensi Terbaru
           </h2>
 

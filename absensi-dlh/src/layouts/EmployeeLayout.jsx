@@ -8,8 +8,8 @@ function EmployeeLayout({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-gray-100 dark:bg-gray-900">
-      <div className="hidden md:block min-h-screen bg-green-700 dark:bg-gray-950">
+    <div className="flex min-h-screen bg-slate-100 dark:bg-slate-950">
+      <div className="hidden md:block min-h-screen bg-gradient-to-b from-emerald-700 via-green-700 to-slate-950">
         <EmployeeSidebar />
       </div>
 
@@ -27,10 +27,10 @@ function EmployeeLayout({ children }) {
       )}
 
       <div className="flex-1">
-        <div className="md:hidden bg-white dark:bg-gray-800 shadow px-4 py-3">
+        <div className="md:hidden bg-white/90 dark:bg-slate-900/90 shadow px-4 py-3 border-b border-slate-200 dark:border-slate-800">
           <button
             onClick={() => setIsSidebarOpen(true)}
-            className="text-gray-800 dark:text-white"
+            className="text-slate-900 dark:text-white"
           >
             <Menu size={26} />
           </button>
@@ -38,7 +38,7 @@ function EmployeeLayout({ children }) {
 
         <EmployeeNavbar />
 
-        <main className="p-4 md:p-6">
+        <main className="p-4 md:p-6 max-w-[1600px] mx-auto">
           {children}
         </main>
       </div>

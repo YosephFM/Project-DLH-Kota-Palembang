@@ -23,15 +23,15 @@ function Navbar() {
 
   return (
 
-    <div className="bg-white dark:bg-gray-800 shadow px-6 py-4 flex justify-between items-center">
+    <div className="bg-white border-b border-slate-200 shadow-sm px-6 py-4 flex justify-between items-center">
 
-      <h1 className="text-xl font-semibold text-gray-800 dark:text-white">
-        Dashboard
+      <h1 className="text-xl font-semibold text-slate-900">
+        Panel Admin
       </h1>
 
       <button
         onClick={handleLogout}
-        className="bg-red-500 text-white px-4 py-2 rounded"
+        className="bg-rose-500 hover:bg-rose-600 text-white px-4 py-2 rounded-2xl transition-colors duration-200"
       >
         Logout
       </button>

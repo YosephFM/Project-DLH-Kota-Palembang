@@ -109,18 +109,17 @@ function Settings() {
     <AdminLayout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
             Settings
           </h1>
 
-          <p className="text-gray-500 dark:text-gray-300 mt-1">
+          <p className="text-slate-600 dark:text-slate-300 mt-1">
             Kelola profil dan pengaturan aplikasi
           </p>
         </div>
 
-        {/* Profile */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-semibold mb-4 dark:text-white">
+        <div className="card-surface p-6">
+          <h2 className="text-xl font-semibold mb-4 text-slate-900 dark:text-white">
             Profil Admin
           </h2>
 
@@ -130,71 +129,67 @@ function Settings() {
               placeholder="Nama"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full border px-4 py-3 rounded-xl dark:bg-gray-700 dark:text-white"
+              className="input-field"
             />
 
             <input
               type="email"
               value={email}
               disabled
-              className="w-full border px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-700 dark:text-white"
+              className="input-field bg-slate-100 dark:bg-slate-800 cursor-not-allowed"
             />
 
             <button
               onClick={handleUpdateProfile}
-              className="bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-xl"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3 rounded-2xl shadow-md transition-colors duration-200"
             >
               Update Profil
             </button>
           </div>
         </div>
 
-        {/* Password */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-semibold mb-4 dark:text-white">
+        <div className="card-surface p-6">
+          <h2 className="text-xl font-semibold mb-4 text-slate-900 dark:text-white">
             Ganti Password
           </h2>
 
           <div className="space-y-4">
             <div className="relative">
-            <input
+              <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Password Baru"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
-                className="w-full border px-4 py-3 rounded-xl pr-12 dark:bg-gray-700 dark:text-white"
-            />
+                className="input-field pr-12"
+              />
 
-            <button
+              <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
-            >
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500"
+              >
                 {showPassword ? <EyeOff size={22} /> : <Eye size={22} />}
-            </button>
+              </button>
             </div>
             <button
               onClick={handleChangePassword}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-2xl shadow-md transition-colors duration-200"
             >
               Update Password
             </button>
           </div>
         </div>
 
-        {/* Theme */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-semibold mb-4 dark:text-white">
+        <div className="card-surface p-6">
+          <h2 className="text-xl font-semibold mb-4 text-slate-900 dark:text-white">
             Tampilan
           </h2>
 
           <button
             onClick={handleToggleTheme}
-            className="bg-gray-900 text-white px-5 py-3 rounded-xl"
+            className="bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-2xl shadow-md transition-colors duration-200"
           >
-            {darkMode
-              ? "Switch to Light Mode"
-              : "Switch to Dark Mode"}
+            {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
           </button>
         </div>
       </div>

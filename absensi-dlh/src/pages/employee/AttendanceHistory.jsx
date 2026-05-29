@@ -38,7 +38,7 @@ function AttendanceHistory() {
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm p-6">
+        <div className="card-surface p-6">
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>

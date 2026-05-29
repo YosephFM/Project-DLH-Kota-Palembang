@@ -77,8 +77,8 @@ function UploadAttendance() {
 
   return (
     <EmployeeLayout>
-      <div className="max-w-2xl bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6 mx-auto">
-        <h1 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">
+      <div className="max-w-2xl card-surface p-6 mx-auto">
+        <h1 className="text-2xl font-bold mb-2 text-slate-900 dark:text-white">
           Upload Bukti Kehadiran
         </h1>
 
@@ -95,7 +95,7 @@ function UploadAttendance() {
             <input
               type="file"
               accept="image/*"
-              className="w-full border p-3 rounded-xl dark:bg-gray-700 dark:text-white"
+              className="input-field"
               onChange={handleImageChange}
             />
           </div>
@@ -116,7 +116,7 @@ function UploadAttendance() {
             <select
               value={workLocation}
               onChange={(e) => setWorkLocation(e.target.value)}
-              className="w-full border p-3 rounded-xl dark:bg-gray-700 dark:text-white"
+              className="input-field"
               required
             >
               <option value="">Pilih lokasi kerja</option>
@@ -132,7 +132,7 @@ function UploadAttendance() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-green-600 hover:bg-green-700 text-white p-3 rounded-xl"
+            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white p-3 rounded-2xl shadow-md transition-colors duration-200"
           >
             {isLoading ? "Mengupload..." : "Kirim Bukti Kehadiran"}
           </button>

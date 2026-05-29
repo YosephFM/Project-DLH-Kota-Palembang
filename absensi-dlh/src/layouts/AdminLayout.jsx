@@ -8,14 +8,14 @@ function AdminLayout({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-gray-100 dark:bg-gray-900">
-      <div className="hidden md:block min-h-screen bg-green-700 dark:bg-gray-950">
+    <div className="flex min-h-screen bg-slate-100">
+      <div className="hidden md:block min-h-screen bg-gradient-to-b from-emerald-700 via-green-700 to-slate-950">
         <Sidebar />
       </div>
 
       {isSidebarOpen && (
         <div className="fixed inset-0 z-50 flex md:hidden">
-          <div className="w-64">
+          <div className="w-64 bg-gradient-to-b from-emerald-700 via-green-700 to-slate-950">
             <Sidebar />
           </div>
 
@@ -27,10 +27,10 @@ function AdminLayout({ children }) {
       )}
 
       <div className="flex-1">
-        <div className="md:hidden bg-white dark:bg-gray-800 shadow px-4 py-3">
+        <div className="md:hidden bg-white shadow px-4 py-3 border-b border-slate-200">
           <button
             onClick={() => setIsSidebarOpen(true)}
-            className="text-gray-800 dark:text-white"
+            className="text-slate-900"
           >
             <Menu size={26} />
           </button>
@@ -38,7 +38,7 @@ function AdminLayout({ children }) {
 
         <Navbar />
 
-        <main className="p-4 md:p-6">
+        <main className="p-4 md:p-6 max-w-[1600px] mx-auto">
           {children}
         </main>
       </div>

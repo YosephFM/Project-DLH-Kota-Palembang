@@ -59,7 +59,7 @@ function AttendanceApproval() {
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm p-6">
+        <div className="card-surface p-6">
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
@@ -106,7 +106,7 @@ function AttendanceApproval() {
                         onClick={() =>
                           handleUpdateStatus(item.id, "approved")
                         }
-                        className="bg-green-100 text-green-700 px-3 py-1 rounded-lg"
+                        className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-lg"
                       >
                         Approve
                       </button>
@@ -115,7 +115,7 @@ function AttendanceApproval() {
                         onClick={() =>
                           handleUpdateStatus(item.id, "rejected")
                         }
-                        className="bg-red-100 text-red-700 px-3 py-1 rounded-lg"
+                        className="bg-rose-100 text-rose-700 px-3 py-1 rounded-lg"
                       >
                         Reject
                       </button>

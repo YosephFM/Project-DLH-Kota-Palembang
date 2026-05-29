@@ -107,7 +107,7 @@ function Employees() {
           </div>
 
           {/* ACTION */}
-          <div className="flex gap-3">
+          <div className="flex gap-3 flex-wrap">
 
             {/* SEARCH */}
             <input
@@ -117,7 +117,7 @@ function Employees() {
               onChange={(e) =>
                 setSearchTerm(e.target.value)
               }
-              className="border px-4 py-3 rounded-xl w-64"
+              className="input-field w-64"
             />
 
             {/* FILTER ROLE */}
@@ -126,7 +126,7 @@ function Employees() {
               onChange={(e) =>
                 setRoleFilter(e.target.value)
               }
-              className="border px-4 py-3 rounded-xl"
+              className="input-field"
             >
 
               <option value="all">
@@ -148,7 +148,7 @@ function Employees() {
               onClick={() =>
                 navigate("/admin/employees/add")
               }
-              className="bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-xl"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3 rounded-2xl shadow-md transition-colors duration-200"
             >
               + Tambah Pegawai
             </button>
@@ -158,7 +158,7 @@ function Employees() {
         </div>
 
         {/* TABLE */}
-        <div className="bg-white rounded-2xl shadow-sm p-6">
+        <div className="card-surface p-6">
 
           <div className="overflow-x-auto">
 

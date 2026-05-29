@@ -50,7 +50,7 @@ function TodayAttendance() {
         </div>
 
         {!attendance ? (
-          <div className="bg-white rounded-2xl shadow-sm p-6">
+          <div className="card-surface p-6">
             <h2 className="text-2xl font-bold text-red-600">
               Belum Absen
             </h2>
@@ -59,8 +59,8 @@ function TodayAttendance() {
             </p>
           </div>
         ) : (
-          <div className="bg-white rounded-2xl shadow-sm p-6 max-w-2xl">
-            <h2 className="text-2xl font-bold mb-4">
+          <div className="card-surface p-6 max-w-2xl">
+            <h2 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">
               Detail Absensi
             </h2>
 
